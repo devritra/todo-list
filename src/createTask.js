@@ -1,4 +1,6 @@
-import { title, description, dueDate, priority } from "./test";
+// Imported from barrel file
+
+import { title, description, dueDate, priority } from "./barrelFileForTaskOperation";
 class createTask{
     #title;
     #description;
@@ -35,4 +37,5 @@ class createTask{
         this.#priority = newPriority;
     }
 }
-export const todo = new createTask(title, description, dueDate, priority);
+const todo = new createTask(title, description, dueDate, priority);
+export default todo;
