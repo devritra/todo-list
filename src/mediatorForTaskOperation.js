@@ -8,5 +8,5 @@
 import {title, description, dueDate, priority} from "./test";
 import "./createTask";
 import "./operateOnTaskArray";
-export * as todo from "./createTask";
+export {todo} from "./createTask";
 export {title, description, dueDate, priority}

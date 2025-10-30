@@ -1,4 +1,4 @@
-import project from "./mediatorForProjectOperation";
+import {project} from "./mediatorForProjectOperation";
 
 const storedProjectArray = JSON.parse(localStorage.getItem("projectArray"));
 storedProjectArray.push(project);

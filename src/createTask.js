@@ -38,4 +38,4 @@ class createTask{
     }
 }
 const todo = new createTask(title, description, dueDate, priority);
-export default todo;
+export {todo};

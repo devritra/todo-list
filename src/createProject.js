@@ -23,4 +23,4 @@ class createProject{
 }
 
 const project = new createProject(title, description);
-export default project;
+export {project};
