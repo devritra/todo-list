@@ -1,7 +1,7 @@
 // Imported from barrel file
 
 import { title, description, dueDate, priority } from "./mediatorForTaskOperation";
-class createTask{
+export class createTask{
     #title;
     #description;
     #dueDate;
@@ -11,6 +11,14 @@ class createTask{
         this.#description = description;
         this.#dueDate = dueDate;
         this.#priority = priority;
+        this.toJSON = ()=>{
+            return {
+                title: this.#title,
+                description: this.#description,
+                dueDate: this.#dueDate,
+                priority: this.#priority
+            }
+        }
     }
     getTitle(){
         return this.#title;

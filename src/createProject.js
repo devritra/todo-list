@@ -1,5 +1,5 @@
 import { title, description } from "./mediatorForProjectOperation";
-class createProject{
+export class createProject{
     #title;
     #description;
     projectTaskArray;
@@ -7,6 +7,12 @@ class createProject{
         this.#title = title;
         this.#description = description;
         this.projectTaskArray = [];
+        this.toJSON = ()=>{
+            return {
+                title: this.#title,
+                description: this.#description
+            }
+        }
     }
     getTitle(){
         return this.#title;
