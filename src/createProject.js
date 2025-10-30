@@ -1,4 +1,4 @@
-import { title, description } from "./test2";
+import { title, description } from "./mediatorForProjectOperation";
 class createProject{
     #title;
     #description;
