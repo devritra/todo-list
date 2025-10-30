@@ -2,15 +2,18 @@ import { title, description } from "./mediatorForProjectOperation";
 export class createProject{
     #title;
     #description;
+    #projectUUID;
     projectTaskArray;
     constructor(title, description){
         this.#title = title;
         this.#description = description;
+        this.#projectUUID = crypto.randomUUID();
         this.projectTaskArray = [];
         this.toJSON = ()=>{
             return {
                 title: this.#title,
-                description: this.#description
+                description: this.#description,
+                projectUUID: this.#projectUUID
             }
         }
     }
