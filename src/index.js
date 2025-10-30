@@ -4,3 +4,5 @@ import "./style.css";
 import "./mediatorForTaskOperation";
 const taskArray = [];
 localStorage.setItem("taskArray", JSON.stringify(taskArray));
+const projectArray = [];
+localStorage.setItem("projectArray", JSON.stringify(projectArray));

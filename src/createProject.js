@@ -1,3 +1,4 @@
+import { title, description } from "./test2";
 class createProject{
     #title;
     #description;
