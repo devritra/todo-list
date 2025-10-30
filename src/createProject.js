@@ -1,19 +1,23 @@
 class createProject{
+    #title;
+    #description;
+    projectTaskArray;
     constructor(title, description){
-        this.title = title;
-        this.description = description;
+        this.#title = title;
+        this.#description = description;
+        this.projectTaskArray = [];
     }
     getTitle(){
-        return this.title;
+        return this.#title;
     }
     setTitle(newTitle){
-        this.title = newTitle;
+        this.#title = newTitle;
     }
     getDescription(){
-        return this.description;
+        return this.#description;
     }
     setDescription(newDescription){
-        this.description = newDescription;
+        this.#description = newDescription;
     }
 }
 
