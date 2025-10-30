@@ -1,5 +1,5 @@
 // Imported from barrel file
-import { todo } from "./barrelFileForTaskOperation";
+import { todo } from "./mediatorForTaskOperation";
 
 const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
 storedTaskArray.push(todo);

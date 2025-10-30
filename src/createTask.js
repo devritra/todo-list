@@ -1,6 +1,6 @@
 // Imported from barrel file
 
-import { title, description, dueDate, priority } from "./barrelFileForTaskOperation";
+import { title, description, dueDate, priority } from "./mediatorForTaskOperation";
 class createTask{
     #title;
     #description;
