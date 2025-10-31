@@ -11,7 +11,7 @@ function loadTaskCOntentToDom(){
     mainContent.innerHTML = "";
     const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
     const taskArrayLength = storedTaskArray.length;
-    
+
     for(let i=0; i <= taskArrayLength; i++){
         const taskCard = document.createElement("div");
         taskCard.classList.add("task_card");
@@ -24,5 +24,17 @@ function loadTaskCOntentToDom(){
         taskDesc.textContent = taskObj.getDescription();
         const taskDueDate = document.createElement("p");
         taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
+        taskCard.appendChild(taskTitle);
+        taskCard.appendChild(taskDesc);
+        taskCard.appendChild(taskDueDate);
+        mainContent.appendChild(taskCard);
     }
+
+    const addTaskCard = document.createElement(div);
+    addTaskCard.classList.add("add_task_card");
+    addTaskCard.dataset.action = "show_task_adding_dialog";
+    const addTaskCardText = document.createElement("p");
+    addTaskCardText.textContent = "Add a new task";
+    addTaskCard.appendChild(addTaskCardText);
+    mainContent.appendChild(addTaskCard);
 }
