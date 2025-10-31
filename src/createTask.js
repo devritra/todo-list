@@ -6,20 +6,18 @@ export class createTask{
     #description;
     #dueDate;
     #priority;
-    #taskUUID;
     constructor(title, description, dueDate, priority){
         this.#title = title;
         this.#description = description;
         this.#dueDate = dueDate;
         this.#priority = priority;
-        this.#taskUUID = crypto.randomUUID();
+        this.UUID = crypto.randomUUID();
         this.toJSON = ()=>{
             return {
                 title: this.#title,
                 description: this.#description,
                 dueDate: this.#dueDate,
                 priority: this.#priority,
-                taskUUID: this.#taskUUID
             }
         }
     }
