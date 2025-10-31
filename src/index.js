@@ -4,6 +4,7 @@ import "./style.css";
 import "./mediatorForTaskOperation";
 import "./mediatorForProjectOperation";
 import "./mediatorForProjectTaskOperation";
+import "./eventHandler"
 
 const taskArray = [];
 localStorage.setItem("taskArray", JSON.stringify(taskArray));

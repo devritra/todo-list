@@ -25,7 +25,28 @@
             <h1>Welcome to my todo list app</h1>
             <p>Don't forget to do the things that are important</p>
         </div>
-        <div class="main_content"></div>
+        <div class="main_content">
+            
+        </div>
     </div>
+    <dialog id="task_adding_dialog" closedby="any">
+        <form action="#" method="dialog">
+            <div>
+                <label for="task_title_input">Give your task a title: </label>
+                <input type="text" name="task_title_input" id="task_title_input" required>
+            </div>
+            <div>
+                <label for="task_desc_input">Describe your task: </label>
+                <input type="text" name="task_desc_input" id="task_desc_input">
+            </div>
+            <div>
+                <label for="task_date_input">Add a deadline to make yourself anxious: </label>
+                <input type="date" name="task_date_input" id="task_date_input" required>
+            </div>
+            <div>
+                <button type="submit" data-action="add_task_from_dialog">Add task</button>
+            </div>
+        </form>
+    </dialog>
 </body>
 </html>
