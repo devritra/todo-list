@@ -43,6 +43,15 @@
                 <label for="task_date_input">Add a deadline to make yourself anxious: </label>
                 <input type="date" name="task_date_input" id="task_date_input" required>
             </div>
+            <fieldset>
+                <legend>Choose a priority for your task: </legend>
+                <input type="radio" id="r1" name="priority" value="high">
+                <label for="r1">High</label>
+                <input type="radio" id="r2" name="priority" value="medium">
+                <label for="r2">Medium</label>
+                <input type="radio" id="r3" name="priority" value="low">
+                <label for="r3">Low</label>
+            </fieldset>
             <div>
                 <button type="submit" data-action="add_task_from_dialog">Add task</button>
             </div>

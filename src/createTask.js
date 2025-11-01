@@ -1,6 +1,6 @@
 // Imported from barrel file
 
-import { title, description, dueDate, priority } from "./mediatorForTaskOperation";
+import { title, description, dueDate, priority } from "./eventHandler";
 export class createTask{
     #title;
     #description;

@@ -12,27 +12,32 @@ export function loadTaskCOntentToDom(){
     const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
     const taskArrayLength = storedTaskArray.length;
     if(taskArrayLength >= 1){
-        for(let i=0; i <= taskArrayLength; i++){
-        const taskCard = document.createElement("div");
-        taskCard.classList.add("task_card");
-        const storedTaskObj = storedTaskArray[i];
-        const taskObj = new createTask(storedTaskObj.title, storedTaskObj.description, storedTaskObj.dueDate, storedTaskObj.priority);
-        taskCard.dataset.UUID = taskObj.UUID;
-        const taskTitle = document.createElement("p");
-        taskTitle.textContent = taskObj.getTitle();
-        const taskDesc = document.createElement("p");
-        taskDesc.textContent = taskObj.getDescription();
-        const taskDueDate = document.createElement("p");
-        taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
-        const removeTaskBtn = document.createElement("button");
-        removeTaskBtn.textContent = "X";
-        removeTaskBtn.dataset.action = "remove_task";
-        taskCard.appendChild(taskTitle);
-        taskCard.appendChild(taskDesc);
-        taskCard.appendChild(taskDueDate);
-        taskCard.appendChild(removeTaskBtn);
-        mainContent.appendChild(taskCard);
-    }
+        for(let i=0; i < taskArrayLength; i++){
+            const taskCard = document.createElement("div");
+            taskCard.classList.add("task_card");
+            const storedTaskObj = storedTaskArray[i];
+            console.log(storedTaskObj.title)
+            let title = storedTaskObj.title;
+            let description = storedTaskObj.description;
+            let dueDate = storedTaskObj.dueDate;
+            let priority = storedTaskObj.priority;
+            const taskObj = new createTask(title, description, dueDate, priority);
+            taskCard.dataset.UUID = taskObj.UUID;
+            const taskTitle = document.createElement("p");
+            taskTitle.textContent = taskObj.getTitle();
+            const taskDesc = document.createElement("p");
+            taskDesc.textContent = taskObj.getDescription();
+            const taskDueDate = document.createElement("p");
+            taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
+            const removeTaskBtn = document.createElement("button");
+            removeTaskBtn.textContent = "X";
+            removeTaskBtn.dataset.action = "remove_task";
+            taskCard.appendChild(taskTitle);
+            taskCard.appendChild(taskDesc);
+            taskCard.appendChild(taskDueDate);
+            taskCard.appendChild(removeTaskBtn);
+            mainContent.appendChild(taskCard);
+        }
     }
 
     const addTaskCard = document.createElement("div");

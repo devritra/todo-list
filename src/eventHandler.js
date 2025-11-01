@@ -1,6 +1,12 @@
 import { loadTaskCOntentToDom } from "./taskContentLoader";
 import { removeTaskFromTaskArray } from "./removeTaskFromTaskArray";
+import { createTask } from "./createTask";
+import { operateOnTaskArray } from "./operateOnTaskArray";
 
+let title;
+let description;
+let dueDate;
+let priority;
 const body = document.querySelector("body");
 body.addEventListener("click", (e)=>{
     switch (e.target.dataset.action) {
@@ -21,5 +27,25 @@ body.addEventListener("click", (e)=>{
         case "show_task_adding_dialog_text":
             const taskAddingDialog = document.querySelector("#task_adding_dialog");
             taskAddingDialog.showModal();
+            break;
+        case "add_task_from_dialog":
+            const taskTitleInput = document.querySelector("#task_title_input");
+            const taskDescInput = document.querySelector("#task_desc_input");
+            const taskDueDateInput = document.querySelector("#task_date_input");
+            const taskPriorityInputList = document.getElementsByName("priority");
+            for(let i=0; i<taskPriorityInputList.length; i++){
+                if(taskPriorityInputList[i].checked){
+                    priority = taskPriorityInputList[i].value;
+                }
+            }
+            title = taskTitleInput.value;
+            description = taskDescInput.value;
+            dueDate = taskDueDateInput.value;
+            const newTask = new createTask(title, description, dueDate, priority);
+            operateOnTaskArray(newTask);
+            const taskAddingDialogAgain = document.querySelector("#task_adding_dialog");
+            taskAddingDialogAgain.close();
+            loadTaskCOntentToDom();
     }
 })
+export {title, description, dueDate, priority};
