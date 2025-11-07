@@ -1,25 +1,28 @@
 // Imported from barrel file
 
 // import { title, description, dueDate, priority } from "./eventHandler";
+
 export class createTask{
+    constructor(title, description, dueDate, priority){
+        this.title = title;
+        this.description = description;
+        this.dueDate = dueDate
+        this.priority = priority;
+        this.taskUUID = crypto.randomUUID();
+    }
+}
+
+export class createTaskForTheDom{
     #title;
     #description;
     #dueDate;
     #priority;
-    constructor(title, description, dueDate, priority){
+    constructor(title, description, dueDate, priority, taskUUID){
         this.#title = title;
         this.#description = description;
         this.#dueDate = dueDate;
         this.#priority = priority;
-        this.UUID = crypto.randomUUID();
-        this.toJSON = ()=>{
-            return {
-                title: this.#title,
-                description: this.#description,
-                dueDate: this.#dueDate,
-                priority: this.#priority,
-            }
-        }
+        this.taskUUID = taskUUID;
     }
     getTitle(){
         return this.#title;

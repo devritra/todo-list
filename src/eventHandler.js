@@ -1,5 +1,5 @@
 import { loadTaskCOntentToDom } from "./taskContentLoader";
-// import { removeTaskFromTaskArray } from "./removeTaskFromTaskArray";
+import { removeTaskFromTaskArray } from "./removeTaskFromTaskArray";
 import { createTask } from "./createTask";
 import { operateOnTaskArray } from "./operateOnTaskArray";
 
@@ -12,13 +12,13 @@ main.addEventListener("click", (e)=>{
         case "load_tasks":
             loadTaskCOntentToDom();
             break;
-//         case "remove_task":
-//             const taskCard = e.target.closest(".task_card");
-//             const mainContent = document.querySelector(".main_content");
-//             const taskUUID = taskCard.dataset.action;
-//             removeTaskFromTaskArray(taskUUID);
-//             mainContent.removeChild(taskCard);
-//             break;
+        case "remove_task":
+            const taskCard = e.target.closest(".task_card");
+            const mainContent = document.querySelector(".main_content");
+            const taskUUID = taskCard.dataset.task_uuid;
+            removeTaskFromTaskArray(taskUUID);
+            mainContent.removeChild(taskCard);
+            break;
         case "show_task_adding_dialog":
         case "show_task_adding_dialog_text":
             const taskAddingForm = document.querySelector("#task_adding_form");

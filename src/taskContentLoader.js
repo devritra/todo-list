@@ -1,4 +1,4 @@
-import { createTask } from "./createTask";
+import { createTaskForTheDom } from "./createTask";
 import { format } from "date-fns";
 
 export function loadTaskCOntentToDom(){
@@ -21,8 +21,9 @@ export function loadTaskCOntentToDom(){
             let description = storedTaskObj.description;
             let dueDate = storedTaskObj.dueDate;
             let priority = storedTaskObj.priority;
-            const taskObj = new createTask(title, description, dueDate, priority);
-            taskCard.dataset.UUID = taskObj.UUID;
+            let taskUUID = storedTaskObj.taskUUID;
+            const taskObj = new createTaskForTheDom(title, description, dueDate, priority, taskUUID);
+            taskCard.dataset.task_uuid = taskObj.taskUUID;
             const taskTitle = document.createElement("p");
             taskTitle.textContent = taskObj.getTitle();
             const taskDesc = document.createElement("p");
