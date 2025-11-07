@@ -1,6 +1,6 @@
 // Imported from barrel file
 
-import { title, description, dueDate, priority } from "./eventHandler";
+// import { title, description, dueDate, priority } from "./eventHandler";
 export class createTask{
     #title;
     #description;
@@ -46,5 +46,5 @@ export class createTask{
         this.#priority = newPriority;
     }
 }
-const todo = new createTask(title, description, dueDate, priority);
-export {todo};
+// const todo = new createTask(title, description, dueDate, priority);
+// export {todo};

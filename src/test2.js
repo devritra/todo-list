@@ -1,2 +1,2 @@
-export const title = "my project";
-export const description = "really big project";
+// export const title = "my project";
+// export const description = "really big project";
