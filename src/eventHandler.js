@@ -23,13 +23,13 @@ main.addEventListener("click", (e)=>{
 //             removeTaskFromTaskArray(taskUUID);
 //             mainContent.removeChild(taskCard);
 //             break;
-//         case "show_task_adding_dialog":
-//         case "show_task_adding_dialog_text":
-//             const taskAddingForm = document.querySelector("#task_adding_form");
-//             taskAddingForm.reset();
-//             const taskAddingDialog = document.querySelector("#task_adding_dialog");
-//             taskAddingDialog.showModal();
-//             break;
+        case "show_task_adding_dialog":
+        case "show_task_adding_dialog_text":
+            const taskAddingForm = document.querySelector("#task_adding_form");
+            taskAddingForm.reset();
+            const taskAddingDialog = document.querySelector("#task_adding_dialog");
+            taskAddingDialog.showModal();
+            break;
 //         case "add_task_from_dialog":
 //             const taskTitleInput = document.querySelector("#task_title_input");
 //             const taskDescInput = document.querySelector("#task_desc_input");
