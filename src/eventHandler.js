@@ -53,6 +53,13 @@ main.addEventListener("click", (e)=>{
         case "load_projects":
             loadProjectContentToDom();
             break;
+        case "show_project_adding_dialog":
+        case "show_project_adding_dialog_text":
+            const projectAddingForm = document.querySelector("#project_adding_form");
+            projectAddingForm.reset();
+            const projectAddingDialog = document.querySelector("#project_adding_dialog");
+            projectAddingDialog.showModal();
+            break;
     }
 })
 // export {title, description, dueDate, priority};
