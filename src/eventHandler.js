@@ -7,6 +7,7 @@ import { loadProjectContentToDom } from "./projectContentLoader";
 import { createProject } from "./createProject";
 import { operateOnProjectArray } from "./operateOnProjectArray";
 import { removeProjectFromProjectArray } from "./removeProjectFromProjectArray";
+import { loadProjectTaskContentToTheDom } from "./projectTaskContentLoader";
 
 const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
@@ -89,6 +90,7 @@ main.addEventListener("click", (e)=>{
     let projectCard = e.target.closest(".project_card");
     if(projectCard){
         console.log("Project tasks");
+        loadProjectTaskContentToTheDom(projectCard.dataset.project_uuid)
     } else {
         return;
     }
