@@ -70,6 +70,35 @@
                 </div>
             </form>
         </dialog>
+
+        <dialog id="project_task_adding_dialog" closedby="any">
+            <form action="#" method="dialog" id="project_task_adding_form">
+                <div>
+                    <label for="project_task_title_input">Give your task a title: </label>
+                    <input type="text" name="project_task_title_input" id="project_task_title_input" required>
+                </div>
+                <div>
+                    <label for="project_task_desc_input">Describe your task: </label>
+                    <input type="text" name="project_task_desc_input" id="project_task_desc_input">
+                </div>
+                <div>
+                    <label for="project_task_date_input">Add a deadline to make yourself anxious: </label>
+                    <input type="date" name="project_task_date_input" id="project_task_date_input" required>
+                </div>
+                <fieldset>
+                    <legend>Choose a priority for your task: </legend>
+                    <input type="radio" id="r01" name="priority" value="high">
+                    <label for="r01">High</label>
+                    <input type="radio" id="r02" name="priority" value="medium">
+                    <label for="r02">Medium</label>
+                    <input type="radio" id="r03" name="priority" value="low">
+                    <label for="r03">Low</label>
+                </fieldset>
+                <div>
+                    <button type="submit" data-action="add_project_task_from_dialog">Add task</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>

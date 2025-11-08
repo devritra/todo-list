@@ -18,7 +18,8 @@ export function loadProjectContentToDom(){
             let title = storedProjectObj.title;
             let description = storedProjectObj.description;
             let projectUUID = storedProjectObj.projectUUID;
-            const projectObj = new createProjectForTheDom(title, description, projectUUID);
+            let projectTaskArray = storedProjectObj.projectTaskArray;
+            const projectObj = new createProjectForTheDom(title, description, projectUUID, projectTaskArray);
             projectCard.dataset.project_uuid = projectObj.projectUUID;
             const projectTitle = document.createElement("p");
             projectTitle.textContent = projectObj.getTitle();

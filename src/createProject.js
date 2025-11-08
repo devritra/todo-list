@@ -4,17 +4,18 @@ export class createProject{
         this.title = title;
         this.description = description;
         this.projectUUID = crypto.randomUUID();
+        this.projectTaskArray = [];
     }
 }
 export class createProjectForTheDom{
     #title;
     #description;
     projectTaskArray;
-    constructor(title, description, projectUUID){
+    constructor(title, description, projectUUID, projectTaskArray){
         this.#title = title;
         this.#description = description;
         this.projectUUID = projectUUID;
-        this.projectTaskArray = [];
+        this.projectTaskArray = projectTaskArray;
     }
     getTitle(){
         return this.#title;

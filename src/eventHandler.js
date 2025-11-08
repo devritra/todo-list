@@ -9,6 +9,10 @@ import { operateOnProjectArray } from "./operateOnProjectArray";
 import { removeProjectFromProjectArray } from "./removeProjectFromProjectArray";
 import { loadProjectTaskContentToTheDom } from "./projectTaskContentLoader";
 
+import { operateOnProjectTaskArray } from "./operateOnProjectTaskArray";
+import { getActiveProjectUUID, setActiveProjectUUID } from "./activeProjectUUIDHolder";
+import { removeProjectTaskFromProjectTaskArray } from "./removeProjectTaskFromTaskArray";
+
 const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
 main.addEventListener("click", (e)=>{
@@ -21,7 +25,6 @@ main.addEventListener("click", (e)=>{
             break;
         case "remove_task":
             const taskCard = e.target.closest(".task_card");
-            mainContent = document.querySelector(".main_content");
             const taskUUID = taskCard.dataset.task_uuid;
             removeTaskFromTaskArray(taskUUID);
             mainContent.removeChild(taskCard);
@@ -85,13 +88,57 @@ main.addEventListener("click", (e)=>{
             removeProjectFromProjectArray(projectUUID);
             mainContent.removeChild(projectCard);
             break;
+
+        case "show_project_task_adding_dialog":
+        case "show_project_task_adding_dialog_text":
+            const projectTaskAddingForm = document.querySelector("#project_task_adding_form");
+            projectTaskAddingForm.reset();
+            const projectTaskAddingDialog = document.querySelector("#project_task_adding_dialog");
+            projectTaskAddingDialog.showModal();
+            break;
+        case "add_project_task_from_dialog":
+            const projectTaskTitleInput = document.querySelector("#project_task_title_input");
+            const projectTaskDescInput = document.querySelector("#project_task_desc_input");
+            const projectTaskDueDateInput = document.querySelector("#project_task_date_input");
+            const projectTaskPriorityInputList = document.getElementsByName("priority");
+            let projectTaskTitle;
+            let projectTaskDescription;
+            let projectTaskDueDate;
+            let projectTaskPriority;
+            for(let i=0; i<projectTaskPriorityInputList.length; i++){
+                if(projectTaskPriorityInputList[i].checked){
+                    projectTaskPriority = projectTaskPriorityInputList[i].value;
+                }
+            }
+            projectTaskTitle = projectTaskTitleInput.value;
+            projectTaskDescription = projectTaskDescInput.value;
+            projectTaskDueDate = projectTaskDueDateInput.value;
+            const newProjectTask = new createTask(projectTaskTitle, projectTaskDescription, projectTaskDueDate, projectTaskPriority);
+            operateOnProjectTaskArray(newProjectTask, getActiveProjectUUID());
+            operateOnTaskArray(newProjectTask);
+            const projectTaskAddingDialogAgain = document.querySelector("#project_task_adding_dialog");
+            projectTaskAddingDialogAgain.close();
+            loadProjectTaskContentToTheDom(getActiveProjectUUID());
+            break;
+        case "remove_project_task":
+            const projectTaskCard = e.target.closest(".project_task_card");
+            const projectTaskUUID = projectTaskCard.dataset.task_uuid;
+            removeProjectTaskFromProjectTaskArray(projectTaskUUID, getActiveProjectUUID());
+            removeTaskFromTaskArray(projectTaskUUID);
+            mainContent.removeChild(projectTaskCard);
+            break;
     }
 
     let projectCard = e.target.closest(".project_card");
     if(projectCard){
-        console.log("Project tasks");
-        loadProjectTaskContentToTheDom(projectCard.dataset.project_uuid)
-    } else {
+        if(!e.target.dataset.action || e.target.dataset.action === "show_project_tasks"){
+            console.log("Project tasks");
+            loadProjectTaskContentToTheDom(projectCard.dataset.project_uuid);
+            setActiveProjectUUID(projectCard.dataset.project_uuid);
+            return;
+        }
+    }
+    else {
         return;
     }
 })

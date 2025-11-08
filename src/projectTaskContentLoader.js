@@ -1,3 +1,6 @@
+import { createTaskForTheDom } from "./createTask";
+import { format } from "date-fns";
+
 export function loadProjectTaskContentToTheDom(projectUUID){
     const mainContent = document.querySelector(".main_content");
     mainContent.innerHTML = "";
@@ -6,15 +9,15 @@ export function loadProjectTaskContentToTheDom(projectUUID){
         console.log(project.projectUUID);
         return project.projectUUID === projectUUID;
     });
-    const targetProjectTaskArray = storedProjectArray[targetProjectIndex].projectTaskArray;
-    if(targetProjectTaskArray){
-        const projectTaskArrayLength = targetProjectTaskArray.length;
+    const storedProjectTaskArray = storedProjectArray[targetProjectIndex].projectTaskArray;
+    if(storedProjectTaskArray){
+        const projectTaskArrayLength = storedProjectTaskArray.length;
         if(projectTaskArrayLength >= 1){
             for(let i=0; i < projectTaskArrayLength; i++){
                 const projectTaskCard = document.createElement("div");
                 projectTaskCard.classList.add("project_task_card");
                 projectTaskCard.classList.add("task_card");
-                const storedProjectTaskObj = storedTaskArray[i];
+                const storedProjectTaskObj = storedProjectTaskArray[i];
                 let title = storedProjectTaskObj.title;
                 let description = storedProjectTaskObj.description;
                 let dueDate = storedProjectTaskObj.dueDate;
@@ -30,7 +33,7 @@ export function loadProjectTaskContentToTheDom(projectUUID){
                 taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
                 const removeTaskBtn = document.createElement("button");
                 removeTaskBtn.textContent = "X";
-                removeTaskBtn.dataset.action = "remove_task";
+                removeTaskBtn.dataset.action = "remove_project_task";
                 projectTaskCard.appendChild(taskTitle);
                 projectTaskCard.appendChild(taskDesc);
                 projectTaskCard.appendChild(taskDueDate);
