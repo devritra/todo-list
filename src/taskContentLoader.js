@@ -16,7 +16,6 @@ export function loadTaskCOntentToDom(){
             const taskCard = document.createElement("div");
             taskCard.classList.add("task_card");
             const storedTaskObj = storedTaskArray[i];
-            console.log(storedTaskObj.title)
             let title = storedTaskObj.title;
             let description = storedTaskObj.description;
             let dueDate = storedTaskObj.dueDate;

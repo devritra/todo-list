@@ -13,8 +13,8 @@ export function loadProjectContentToDom(){
         for(let i=0; i < projectArrayLength; i++){
             const projectCard = document.createElement("div");
             projectCard.classList.add("project_card");
+            projectCard.dataset.action = "show_project_tasks"
             const storedProjectObj = storedProjectArray[i];
-            console.log(storedProjectObj.title)
             let title = storedProjectObj.title;
             let description = storedProjectObj.description;
             let projectUUID = storedProjectObj.projectUUID;

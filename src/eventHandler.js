@@ -85,5 +85,12 @@ main.addEventListener("click", (e)=>{
             mainContent.removeChild(projectCard);
             break;
     }
+
+    let projectCard = e.target.closest(".project_card");
+    if(projectCard){
+        console.log("Project tasks");
+    } else {
+        return;
+    }
 })
 // export {title, description, dueDate, priority};
