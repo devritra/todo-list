@@ -1,10 +1,10 @@
 export function removeTaskFromTaskArray(taskid){
-    const storedProjectArray = JSON.parse(localStorage.getItem("taskArray"));
-    const targetProjectIndex = storedProjectArray.findIndex((project)=>{
-        console.log(project.taskUUID);
-        return project.taskUUID === taskid;
+    const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
+    const targetTaskIndex = storedTaskArray.findIndex((task)=>{
+        console.log(task.taskUUID);
+        return task.taskUUID === taskid;
     })
-    console.log(targetProjectIndex);
-    storedProjectArray.splice(targetProjectIndex, 1);
-    localStorage.setItem("taskArray", JSON.stringify(storedProjectArray));
+    console.log(targetTaskIndex);
+    storedTaskArray.splice(targetTaskIndex, 1);
+    localStorage.setItem("taskArray", JSON.stringify(storedTaskArray));
 }

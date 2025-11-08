@@ -6,7 +6,9 @@ import { operateOnTaskArray } from "./operateOnTaskArray";
 import { loadProjectContentToDom } from "./projectContentLoader";
 import { createProject } from "./createProject";
 import { operateOnProjectArray } from "./operateOnProjectArray";
+import { removeProjectFromProjectArray } from "./removeProjectFromProjectArray";
 
+const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
 main.addEventListener("click", (e)=>{
     switch (e.target.dataset.action) {
@@ -18,7 +20,7 @@ main.addEventListener("click", (e)=>{
             break;
         case "remove_task":
             const taskCard = e.target.closest(".task_card");
-            const mainContent = document.querySelector(".main_content");
+            mainContent = document.querySelector(".main_content");
             const taskUUID = taskCard.dataset.task_uuid;
             removeTaskFromTaskArray(taskUUID);
             mainContent.removeChild(taskCard);
@@ -75,6 +77,12 @@ main.addEventListener("click", (e)=>{
             const projectAddingDialogAgain = document.querySelector("#project_adding_dialog");
             projectAddingDialogAgain.close();
             loadProjectContentToDom();
+            break;
+        case "remove_project":
+            const projectCard = e.target.closest(".project_card");
+            const projectUUID = projectCard.dataset.project_uuid;
+            removeProjectFromProjectArray(projectUUID);
+            mainContent.removeChild(projectCard);
             break;
     }
 })
