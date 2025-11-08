@@ -2,6 +2,7 @@ import { loadTaskCOntentToDom } from "./taskContentLoader";
 import { removeTaskFromTaskArray } from "./removeTaskFromTaskArray";
 import { createTask } from "./createTask";
 import { operateOnTaskArray } from "./operateOnTaskArray";
+import { loadProjectContentToDom } from "./projectContentLoader";
 
 const main = document.querySelector(".main");
 main.addEventListener("click", (e)=>{
@@ -48,6 +49,9 @@ main.addEventListener("click", (e)=>{
             const taskAddingDialogAgain = document.querySelector("#task_adding_dialog");
             taskAddingDialogAgain.close();
             loadTaskCOntentToDom();
+            break;
+        case "load_projects":
+            loadProjectContentToDom();
             break;
     }
 })

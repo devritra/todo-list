@@ -54,6 +54,22 @@
                 </div>
             </form>
         </dialog>
+
+        <dialog id="project_adding_dialog" closedby="any">
+            <form action="#" method="dialog" id="project_adding_form">
+                <div>
+                    <label for="project_title_input">Give your project a title: </label>
+                    <input type="text" name="project_title_input" id="project_title_input" required>
+                </div>
+                <div>
+                    <label for="project_desc_input">Describe your project: </label>
+                    <input type="text" name="project_desc_input" id="project_desc_input">
+                </div>
+                <div>
+                    <button type="submit" data-action="add_project_from_dialog">Add project</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>
