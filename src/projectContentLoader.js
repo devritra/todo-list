@@ -1,3 +1,4 @@
+import { createProjectForTheDom } from "./createProject";
 export function loadProjectContentToDom(){
     const navbarHeading = document.querySelector(".navbar>h1");
     const navbarText = document.querySelector(".navbar>p");

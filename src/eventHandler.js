@@ -2,7 +2,10 @@ import { loadTaskCOntentToDom } from "./taskContentLoader";
 import { removeTaskFromTaskArray } from "./removeTaskFromTaskArray";
 import { createTask } from "./createTask";
 import { operateOnTaskArray } from "./operateOnTaskArray";
+
 import { loadProjectContentToDom } from "./projectContentLoader";
+import { createProject } from "./createProject";
+import { operateOnProjectArray } from "./operateOnProjectArray";
 
 const main = document.querySelector(".main");
 main.addEventListener("click", (e)=>{
@@ -59,6 +62,19 @@ main.addEventListener("click", (e)=>{
             projectAddingForm.reset();
             const projectAddingDialog = document.querySelector("#project_adding_dialog");
             projectAddingDialog.showModal();
+            break;
+        case "add_project_from_dialog":
+            const projectTitleInput = document.querySelector("#project_title_input");
+            const projectDescInput = document.querySelector("#project_desc_input");
+            let projectTitle;
+            let projectDescription;
+            projectTitle = projectTitleInput.value;
+            projectDescription = projectDescInput.value;
+            const newProject = new createProject(projectTitle, projectDescription);
+            operateOnProjectArray(newProject);
+            const projectAddingDialogAgain = document.querySelector("#project_adding_dialog");
+            projectAddingDialogAgain.close();
+            loadProjectContentToDom();
             break;
     }
 })
