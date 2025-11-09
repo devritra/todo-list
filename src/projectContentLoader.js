@@ -27,7 +27,7 @@ export function loadProjectContentToDom(){
             projectDesc.textContent = projectObj.getDescription();
             const removeProjectBtn = document.createElement("button");
             removeProjectBtn.textContent = "X";
-            removeProjectBtn.dataset.action = "remove_project";
+            removeProjectBtn.dataset.action = "show_project_delete_confirm_dialog";
             projectCard.appendChild(projectTitle);
             projectCard.appendChild(projectDesc);
             projectCard.appendChild(removeProjectBtn);

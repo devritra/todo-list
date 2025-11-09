@@ -18,6 +18,8 @@ const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
 let taskCard;
 let taskUUID;
+let projectCard;
+let projectUUID;
 main.addEventListener("click", (e)=>{
     switch (e.target.dataset.action) {
 //         case "load_home":
@@ -108,14 +110,21 @@ main.addEventListener("click", (e)=>{
             projectAddingDialogAgain.close();
             loadProjectContentToDom();
             break;
+        case "show_project_delete_confirm_dialog":
+            const projectDeleteConfirmDialog = document.querySelector("#project_delete_confirm_dialog");
+            projectDeleteConfirmDialog.showModal();
+            projectCard = e.target.closest(".project_card");
+            projectUUID = projectCard.dataset.project_uuid;
+            break;
         case "remove_project":
-            const projectCard = e.target.closest(".project_card");
-            const projectUUID = projectCard.dataset.project_uuid;
             removeProjectTaskFromTaskArray(projectUUID);
             removeProjectFromProjectArray(projectUUID);
             mainContent.removeChild(projectCard);
             break;
-
+        case "cancel_remove_project":
+            const projectDeleteConfirmDialogAgain = document.querySelector("#project_delete_confirm_dialog");
+            projectDeleteConfirmDialogAgain.showModal();
+            break;
         case "show_project_task_adding_dialog":
         case "show_project_task_adding_dialog_text":
             const projectTaskAddingForm = document.querySelector("#project_task_adding_form");
@@ -165,7 +174,7 @@ main.addEventListener("click", (e)=>{
             break;
     }
 
-    let projectCard = e.target.closest(".project_card");
+    projectCard = e.target.closest(".project_card");
     if(projectCard){
         if(!e.target.dataset.action || e.target.dataset.action === "show_project_tasks"){
             console.log("Project tasks");

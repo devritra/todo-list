@@ -109,6 +109,17 @@
                 </div>
             </form>
         </dialog>
+
+        <dialog id="project_delete_confirm_dialog" closedby="any">
+            <form action="#" method="dialog" id="project_delete_confirm_form">
+                <p>Are you sure you want to delete the project?</p>
+                <p>deleting this project will also delete any task inside of it permanently</p>
+                <div>
+                    <button data-action="remove_project">Yes</button>
+                    <button data-action="cancel_remove_project">No</button>
+                </div>
+            </form>
+        </dialog>
     </div>
 </body>
 </html>
