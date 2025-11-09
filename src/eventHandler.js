@@ -50,6 +50,15 @@ main.addEventListener("click", (e)=>{
                     priority = taskPriorityInputList[i].value;
                 }
             }
+            if(!taskTitleInput.value){
+                return;
+            }
+            if(!taskDueDateInput.value){
+                return;
+            } 
+            if(!taskDescInput.value){
+                taskDescInput.value = "No description for this task";
+            }
             title = taskTitleInput.value;
             description = taskDescInput.value;
             dueDate = taskDueDateInput.value;
@@ -72,6 +81,12 @@ main.addEventListener("click", (e)=>{
         case "add_project_from_dialog":
             const projectTitleInput = document.querySelector("#project_title_input");
             const projectDescInput = document.querySelector("#project_desc_input");
+            if(!projectTitleInput.value){
+                return;
+            }
+            if(!projectDescInput.value){
+                projectDescInput.value = "No description for this project";
+            }
             let projectTitle;
             let projectDescription;
             projectTitle = projectTitleInput.value;
@@ -101,6 +116,15 @@ main.addEventListener("click", (e)=>{
             const projectTaskDescInput = document.querySelector("#project_task_desc_input");
             const projectTaskDueDateInput = document.querySelector("#project_task_date_input");
             const projectTaskPriorityInputList = document.getElementsByName("priority");
+            if(!projectTaskTitleInput.value){
+                return;
+            }
+            if(!projectTaskDueDateInput.value){
+                return;
+            }
+            if(!projectTaskDescInput.value){
+                projectTaskDescInput.value = "No description for this task";
+            }
             let projectTaskTitle;
             let projectTaskDescription;
             let projectTaskDueDate;
