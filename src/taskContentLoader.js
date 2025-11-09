@@ -31,7 +31,7 @@ export function loadTaskCOntentToDom(){
             taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
             const removeTaskBtn = document.createElement("button");
             removeTaskBtn.textContent = "X";
-            removeTaskBtn.dataset.action = "remove_task";
+            removeTaskBtn.dataset.action = "show_task_delete_confirm_dialog";
             taskCard.appendChild(taskTitle);
             taskCard.appendChild(taskDesc);
             taskCard.appendChild(taskDueDate);

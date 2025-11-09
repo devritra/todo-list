@@ -16,6 +16,8 @@ import { removeProjectTaskFromTaskArray } from "./removeProjectTaskFromTaskArray
 
 const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
+let taskCard;
+let taskUUID;
 main.addEventListener("click", (e)=>{
     switch (e.target.dataset.action) {
 //         case "load_home":
@@ -24,11 +26,19 @@ main.addEventListener("click", (e)=>{
         case "load_tasks":
             loadTaskCOntentToDom();
             break;
+        case "show_task_delete_confirm_dialog":
+            const taskDeleteConfirmDialog = document.querySelector("#task_delete_confirm_dialog");
+            taskDeleteConfirmDialog.showModal();
+            taskCard = e.target.closest(".task_card");
+            taskUUID = taskCard.dataset.task_uuid;
+            break;
         case "remove_task":
-            const taskCard = e.target.closest(".task_card");
-            const taskUUID = taskCard.dataset.task_uuid;
             removeTaskFromTaskArray(taskUUID);
             mainContent.removeChild(taskCard);
+            break;
+        case "cancel_remove_task":
+            const taskDeleteConfirmDialogAgain = document.querySelector("#task_delete_confirm_dialog");
+            taskDeleteConfirmDialogAgain.showModal();
             break;
         case "show_task_adding_dialog":
         case "show_task_adding_dialog_text":
