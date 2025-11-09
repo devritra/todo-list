@@ -96,3 +96,15 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   padding-left: 10px;
 }
+#task_adding_dialog,
+#project_adding_dialog,
+#project_task_adding_dialog,
+#task_delete_confirm_dialog,
+#project_delete_confirm_dialog,
+#project_task_delete_confirm_dialog{
+  position: absolute;
+  top: 200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 10px;
+}
