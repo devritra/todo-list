@@ -108,3 +108,15 @@ h1, h2, h3, h4, h5, h6 {
   padding: 20px;
   border-radius: 10px;
 }
+dialog form{
+  display: grid;
+  gap: 10px;
+}
+dialog form div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+dialog form fieldset{
+  border: none;
+}
