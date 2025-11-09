@@ -11,7 +11,8 @@ import { loadProjectTaskContentToTheDom } from "./projectTaskContentLoader";
 
 import { operateOnProjectTaskArray } from "./operateOnProjectTaskArray";
 import { getActiveProjectUUID, setActiveProjectUUID } from "./activeProjectUUIDHolder";
-import { removeProjectTaskFromProjectTaskArray } from "./removeProjectTaskFromTaskArray";
+import { removeProjectTaskFromProjectTaskArray } from "./removeProjectTaskFromProjectTaskArray";
+import { removeProjectTaskFromTaskArray } from "./removeProjectTaskFromTaskArray";
 
 const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
@@ -100,6 +101,7 @@ main.addEventListener("click", (e)=>{
         case "remove_project":
             const projectCard = e.target.closest(".project_card");
             const projectUUID = projectCard.dataset.project_uuid;
+            removeProjectTaskFromTaskArray(projectUUID);
             removeProjectFromProjectArray(projectUUID);
             mainContent.removeChild(projectCard);
             break;

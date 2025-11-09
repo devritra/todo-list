@@ -6,12 +6,12 @@ import "./style.css";
 // import "./mediatorForProjectTaskOperation";
 import "./eventHandler"
 
-const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
+// const storedTaskArray = JSON.parse(localStorage.getItem("taskArray"));
 if(!JSON.parse(localStorage.getItem("taskArray"))){
     const taskArray = [];
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
 }
-const storedProjectArray = JSON.parse(localStorage.getItem("projectArray"));
+// const storedProjectArray = JSON.parse(localStorage.getItem("projectArray"));
 if(!JSON.parse(localStorage.getItem("projectArray"))){
     const projectArray = [];
     localStorage.setItem("projectArray", JSON.stringify(projectArray));
