@@ -86,3 +86,13 @@ h1, h2, h3, h4, h5, h6 {
 .navbar{
   padding: 25px 0 10px 25px;
 }
+.main_content{
+  padding: 25px 25px 0 25px;
+}
+.add_task_card,
+.add_project_card,
+.add_project_task_card{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding-left: 10px;
+}
