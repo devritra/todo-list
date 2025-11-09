@@ -1,7 +1,3 @@
-// Imported from barrel file
-
-// import { title, description, dueDate, priority } from "./eventHandler";
-
 export class createTask{
     constructor(title, description, dueDate, priority){
         this.title = title;
@@ -49,5 +45,3 @@ export class createTaskForTheDom{
         this.#priority = newPriority;
     }
 }
-// const todo = new createTask(title, description, dueDate, priority);
-// export {todo};

@@ -1,4 +1,3 @@
-// import { title, description } from "./mediatorForProjectOperation";
 export class createProject{
     constructor(title, description){
         this.title = title;
@@ -30,6 +29,3 @@ export class createProjectForTheDom{
         this.#description = newDescription;
     }
 }
-
-// const project = new createProject(title, description);
-// export {project};

@@ -1,4 +1,3 @@
-// import {project} from "./mediatorForProjectOperation";
 export function operateOnProjectArray(project){
     const storedProjectArray = JSON.parse(localStorage.getItem("projectArray"));
     storedProjectArray.push(project);
