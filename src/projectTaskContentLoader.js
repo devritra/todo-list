@@ -2,8 +2,9 @@ import { createTaskForTheDom } from "./createTask";
 import { format } from "date-fns";
 
 export function loadProjectTaskContentToTheDom(projectUUID){
-    const mainContent = document.querySelector(".main_content");
+    const mainContent = document.querySelector(".main_content_for_project_content");
     mainContent.innerHTML = "";
+    mainContent.className = "main_content";
     const backBtnHolder = document.createElement("div");
     const backBtn = document.createElement("button");
     backBtn.textContent = "<";

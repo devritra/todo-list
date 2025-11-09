@@ -2,7 +2,7 @@ import { createProjectForTheDom } from "./createProject";
 export function loadProjectContentToDom(){
     const navbarHeading = document.querySelector(".navbar>h1");
     const navbarText = document.querySelector(".navbar>p");
-    const mainContent = document.querySelector(".main_content");
+    const mainContent = document.querySelector(".main_content_for_project_content");
 
     navbarHeading.textContent = "My projects";
     navbarText.textContent = "A place where you can keep all of your projects";

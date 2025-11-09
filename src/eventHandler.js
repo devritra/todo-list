@@ -28,6 +28,7 @@ main.addEventListener("click", (e)=>{
 //             // later
 //             break;
         case "load_tasks":
+            mainContent.className = "main_content";
             loadTaskCOntentToDom();
             break;
         case "show_task_delete_confirm_dialog":
@@ -84,6 +85,7 @@ main.addEventListener("click", (e)=>{
             loadTaskCOntentToDom();
             break;
         case "load_projects":
+            mainContent.className = "main_content_for_project_content";
             loadProjectContentToDom();
             break;
         case "show_project_adding_dialog":
@@ -183,6 +185,7 @@ main.addEventListener("click", (e)=>{
             projectTaskDeleteConfirmDialogAgain.showModal();
             break;
         case "back_to_project_page":
+            mainContent.className = "main_content_for_project_content";
             loadProjectContentToDom();
             break;
     }
