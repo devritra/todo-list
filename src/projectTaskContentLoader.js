@@ -4,6 +4,12 @@ import { format } from "date-fns";
 export function loadProjectTaskContentToTheDom(projectUUID){
     const mainContent = document.querySelector(".main_content");
     mainContent.innerHTML = "";
+    const backBtnHolder = document.createElement("div");
+    const backBtn = document.createElement("button");
+    backBtn.textContent = "<";
+    backBtn.dataset.action = "back_to_project_page";
+    backBtnHolder.appendChild(backBtn);
+    mainContent.appendChild(backBtnHolder);
     const storedProjectArray = JSON.parse(localStorage.getItem("projectArray"));
     const targetProjectIndex = storedProjectArray.findIndex((project)=>{
         console.log(project.projectUUID);
@@ -33,7 +39,7 @@ export function loadProjectTaskContentToTheDom(projectUUID){
                 taskDueDate.textContent = format(taskObj.getDueDate(), "d'th' MMMM', 'yyyy");
                 const removeTaskBtn = document.createElement("button");
                 removeTaskBtn.textContent = "X";
-                removeTaskBtn.dataset.action = "remove_project_task";
+                removeTaskBtn.dataset.action = "show_project_task_delete_confirm_dialog";
                 projectTaskCard.appendChild(taskTitle);
                 projectTaskCard.appendChild(taskDesc);
                 projectTaskCard.appendChild(taskDueDate);

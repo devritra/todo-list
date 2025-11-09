@@ -20,6 +20,8 @@ let taskCard;
 let taskUUID;
 let projectCard;
 let projectUUID;
+let projectTaskCard;
+let projectTaskUUID;
 main.addEventListener("click", (e)=>{
     switch (e.target.dataset.action) {
 //         case "load_home":
@@ -165,12 +167,23 @@ main.addEventListener("click", (e)=>{
             projectTaskAddingDialogAgain.close();
             loadProjectTaskContentToTheDom(getActiveProjectUUID());
             break;
+        case "show_project_task_delete_confirm_dialog":
+            const projectTaskDeleteConfirmDialog = document.querySelector("#project_task_delete_confirm_dialog");
+            projectTaskDeleteConfirmDialog.showModal();
+            projectTaskCard = e.target.closest(".project_task_card");
+            projectTaskUUID = projectTaskCard.dataset.task_uuid;
+            break;
         case "remove_project_task":
-            const projectTaskCard = e.target.closest(".project_task_card");
-            const projectTaskUUID = projectTaskCard.dataset.task_uuid;
             removeProjectTaskFromProjectTaskArray(projectTaskUUID, getActiveProjectUUID());
             removeTaskFromTaskArray(projectTaskUUID);
             mainContent.removeChild(projectTaskCard);
+            break;
+        case "cancel_remove_project_task":
+            const projectTaskDeleteConfirmDialogAgain = document.querySelector("#project_task_delete_confirm_dialog");
+            projectTaskDeleteConfirmDialogAgain.showModal();
+            break;
+        case "back_to_project_page":
+            loadProjectContentToDom();
             break;
     }
 
