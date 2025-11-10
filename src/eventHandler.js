@@ -57,7 +57,7 @@ main.addEventListener("click", (e)=>{
             const taskTitleInput = document.querySelector("#task_title_input");
             const taskDescInput = document.querySelector("#task_desc_input");
             const taskDueDateInput = document.querySelector("#task_date_input");
-            const taskPriorityInputList = document.getElementsByName("priority");
+            const taskPriorityInputList = document.getElementsByName("task_priority");
             let title;
             let description;
             let dueDate;
@@ -142,7 +142,7 @@ main.addEventListener("click", (e)=>{
             const projectTaskTitleInput = document.querySelector("#project_task_title_input");
             const projectTaskDescInput = document.querySelector("#project_task_desc_input");
             const projectTaskDueDateInput = document.querySelector("#project_task_date_input");
-            const projectTaskPriorityInputList = document.getElementsByName("priority");
+            const projectTaskPriorityInputList = document.getElementsByName("project_task_priority");
             if(!projectTaskTitleInput.value){
                 return;
             }

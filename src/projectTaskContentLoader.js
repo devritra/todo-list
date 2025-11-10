@@ -54,6 +54,15 @@ export function loadProjectTaskContentToTheDom(projectUUID){
                 projectTaskCard.appendChild(taskDesc);
                 projectTaskCard.appendChild(taskDueDate);
                 projectTaskCard.appendChild(removeTaskBtn);
+                if(taskObj.getPriority() === "high"){
+                    projectTaskCard.style.borderColor = "red";
+                }
+                if(taskObj.getPriority() === "medium"){
+                    projectTaskCard.style.borderColor = "orange";
+                }
+                if(taskObj.getPriority() === "low"){
+                    projectTaskCard.style.borderColor = "#e5e50a";
+                }
                 mainContent.appendChild(projectTaskCard);
             }
         }
