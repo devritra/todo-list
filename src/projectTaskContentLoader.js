@@ -1,10 +1,19 @@
+import { getActiveTab } from "./activeTabHolder";
 import { createTaskForTheDom } from "./createTask";
 import { format } from "date-fns";
 
 export function loadProjectTaskContentToTheDom(projectUUID){
-    const mainContent = document.querySelector(".main_content_for_project_content");
-    mainContent.innerHTML = "";
-    mainContent.className = "main_content";
+    let mainContent;
+    const activeTab = getActiveTab();
+    if(activeTab === "project"){
+        mainContent = document.querySelector(".main_content_for_project_content");
+        mainContent.innerHTML = "";
+        mainContent.className = "main_content";
+    }
+    if(activeTab === "project task"){
+        mainContent = document.querySelector(".main_content")
+        mainContent.innerHTML = "";
+    }
     const backBtnHolder = document.createElement("div");
     const backBtn = document.createElement("button");
     backBtn.textContent = "<";

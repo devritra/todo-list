@@ -13,6 +13,7 @@ import { operateOnProjectTaskArray } from "./operateOnProjectTaskArray";
 import { getActiveProjectUUID, setActiveProjectUUID } from "./activeProjectUUIDHolder";
 import { removeProjectTaskFromProjectTaskArray } from "./removeProjectTaskFromProjectTaskArray";
 import { removeProjectTaskFromTaskArray } from "./removeProjectTaskFromTaskArray";
+import { setTabAsProject, setTabAsProjectTask } from "./activeTabHolder";
 
 const mainContent = document.querySelector(".main_content");
 const main = document.querySelector(".main");
@@ -86,6 +87,7 @@ main.addEventListener("click", (e)=>{
             break;
         case "load_projects":
             mainContent.className = "main_content_for_project_content";
+            setTabAsProject();
             loadProjectContentToDom();
             break;
         case "show_project_adding_dialog":
@@ -186,6 +188,7 @@ main.addEventListener("click", (e)=>{
             break;
         case "back_to_project_page":
             mainContent.className = "main_content_for_project_content";
+            setTabAsProject();
             loadProjectContentToDom();
             break;
     }
@@ -195,6 +198,7 @@ main.addEventListener("click", (e)=>{
         if(!e.target.dataset.action || e.target.dataset.action === "show_project_tasks"){
             console.log("Project tasks");
             loadProjectTaskContentToTheDom(projectCard.dataset.project_uuid);
+            setTabAsProjectTask();
             setActiveProjectUUID(projectCard.dataset.project_uuid);
             return;
         }
